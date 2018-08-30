@@ -1,0 +1,86 @@
+.header__icon{
+    margin-left: 0px !important;
+}
+.container{
+    max-width: 100% !important;
+    padding-top: 10px !important;
+
+}
+.expansion-panel__header{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.expansion-panel{
+    box-shadow: none !important;
+}
+.bold{
+    font-weight: bold;
+}
+.pointer{
+    cursor: pointer
+}
+.chip .chip__content{
+    cursor: pointer;
+}
+.dialog .btn-close{
+    position: absolute !important;
+    top: 0px !important;
+    right: 0px !important;
+}
+
+#container {
+    height:801px;
+    overflow:visible;
+    padding:0;
+    position:relative;
+    /*background-color: black;*/
+}
+
+.box {
+    background-color: #91e600;
+    text-align: center;
+    font-family: Asap, Avenir, Arial, sans-serif;
+    /*width: 100px;*/
+    height: 40px;
+    line-height: 100px;
+    color: black;
+    position: absolute;
+    top:0;
+}
+.box-red{
+    width: 300px !important;
+}
+
+.controls {
+    background-color: #222;
+    border: 1px solid #555;
+    color: #bbb;
+    font-size: 18px;
+    margin: 20px 0;
+}
+.controls ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.controls li {
+    display: inline-block;
+    padding: 8px 0 8px 10px;
+    margin:0;
+}
+.controls input {
+    vertical-align:middle;
+    cursor: pointer;
+}
+.controls .controlsTitle {
+    border-right:1px solid #555;
+    border-bottom:none;
+    padding-right:10px;
+}
+
+.fade-enter-active{
+    transition: opacity .8s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}

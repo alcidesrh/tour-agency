@@ -1,0 +1,126 @@
+<div>
+    <div class="row mb-2">
+        <p class="bold">{{ tour.code }}</p>
+        <p class="bold">Name: {{ tour.name }}</p>
+        <p class="bold ml-2">Type: {{ tour.type }}</p>
+    </div>
+    <div class="row mb-2">
+        <div class="xs12 px-2">
+            <label class="bold">Start Date: </label>{{ tour.startDate | format_date }}
+            <label class="bold ml-2">End Date: </label>{{ tour.endDate | format_date }}
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="xs12 px-2"><label class="bold">Group Size: </label>{{ tour.getGroupSize }}
+        </div>
+        <div class="row mb-2">
+            <div class="xs12 px-2">
+                <div class="row">
+                    <div class="xs2"><label class="bold">Bookings</label>
+                    </div>
+                    <div class="xs12">
+                        <div class="row">
+                            <ul>
+                                {% for booking in tour.bookings %}
+                                    <li>
+                                        <div class="xs8">
+                                            <label><span class="bold"></span> - {{ booking.name }}</label>
+                                            <label class="bold ml-2">Pax. N: </label>{{ booking.numberPerson }}
+                                            <label class="bold ml-2">Lp: </label>{{ booking.lp }}
+                                        </div>
+                                        <div>
+                                            {% if booking.accommodations | length %}
+                                                <div class="xs12">
+                                                    <ul>
+                                                        <li>
+                                                            <div class="flex xs2 slot"
+                                                                 style="max-width: 131px; padding: 0px;"><label
+                                                                        class="bold">Accommodations: </label></div>
+                                                            {% for acc in booking.getAccommodationExt if booking.getAccommodationExt | length and acc.getBefore%}
+                                                                <div>
+                                                                    <label class="flex xs4">
+                                                                        {{ acc.dateIn | format_date }}
+                                                                    </label>
+                                                                    <label class="flex xs3">
+                                                                        {{ acc.destination.name }}
+                                                                    </label>
+                                                                    <label class="flex xs4"><label class="bold"
+                                                                                                   style="background-color: white;">Accommodation: </label>{{ acc.accommodation.name }}  Extention
+                                                                    </label>
+                                                                </div>
+                                                            {% endfor %}
+                                                            {% for acc in booking.accommodations %}
+                                                                <div>
+                                                                    <label class="flex xs4">
+                                                                        {{ acc.dateIn | format_date }}
+                                                                    </label>
+                                                                    <label class="flex xs3">
+                                                                        {{ acc.destination.name }}
+                                                                    </label>
+                                                                    <label class="flex xs4"><label class="bold"
+                                                                                                   style="background-color: white;">Acc: </label>{{ acc.accommodation.name }}
+                                                                    </label>
+                                                                </div>
+                                                            {% endfor %}
+                                                            {% for acc in booking.getAccommodationExt if booking.getAccommodationExt | length and not acc.getBefore%}
+                                                                <div>
+                                                                    <label class="flex xs4">
+                                                                        {{ acc.dateIn | format_date }}
+                                                                    </label>
+                                                                    <label class="flex xs3">
+                                                                        {{ acc.destination.name }}
+                                                                    </label>
+                                                                    <label class="flex xs4"><label class="bold"
+                                                                                                   style="background-color: white;">Accommodation: </label>{{ acc.accommodation.name }} Extention
+                                                                    </label>
+                                                                </div>
+                                                            {% endfor %}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                            {% if booking.airPortTransferIn is not null %}
+                                                <div class="row  mb-2">
+                                                    <ul>
+                                                        <li>
+                                                            <div><label class="bold">Transfer In: </label></div>
+                                                            <div>
+                                                                <label class="bold">Date: </label>{{ booking.airPortTransferIn.date | format_date }}
+                                                                <label class="bold">Accommodation: </label>{{ booking.airPortTransferIn.accommodation?booking.airPortTransferIn.accommodation.accommodation.name: 'No hay alojamiento' }}
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                            {% if booking.airPortTransferOut is not null %}
+                                                <div class="row  mb-2">
+                                                    <ul>
+                                                        <li>
+                                                            <div><label class="bold">Transfer Out: </label></div>
+                                                            <div>
+                                                                <label class="bold">Date: </label>{{ booking.airPortTransferOut.date | format_date }}
+                                                                <label class="bold">Accommodation: </label>{{ booking.airPortTransferOut.accommodation?booking.airPortTransferOut.accommodation.accommodation.name: 'No hay alojamiento' }}
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if tour.description %}
+        <div class="row mb-2">
+            <p>Description:</p>
+            <div class="xs12 px-2">
+                {{ tour.description  | raw}}
+            </div>
+        </div>
+    {% endif %}
+</div>

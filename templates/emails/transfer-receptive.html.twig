@@ -1,0 +1,16 @@
+<div>
+    {% for transfer in transfers %}
+        <div class="row mb-2">
+            <p class="bold">Contact Name: {{ transfer.booking.name }}</p>
+            <p class="bold ml-2">Pax. Number: {{ transfer.numberPerson }}</p>
+        </div>
+        <div class="row mb-2">
+            <div class="xs12 px-2">
+                <p class="bold">Date: {{ transfer.date | format_date~' '~transfer.date | format_time}}</p>
+                <p class="bold ml-2">Fly Data: {{ transfer.flightData }}</p>
+                <p class="bold ml-2">Accommodation: {{ transfer.accommodation.accommodation.name }}</p>
+            </div>
+        </div>
+        <hr/>
+    {% endfor %}
+</div>

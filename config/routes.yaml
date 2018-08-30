@@ -1,0 +1,31 @@
+# These lines define a route using YAML configuration. The controller used by
+# the route (FrameworkBundle:Template:template) is a convenient shortcut when
+# the template can be rendered without executing any logic in your own controller.
+# See https://symfony.com/doc/current/cookbook/templating/render_without_controller.html
+
+homepage:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController::templateAction
+
+    defaults:
+        template: default/homepage.html.twig
+api:
+    resource: '.'
+    type: 'api_platform'
+    prefix: '/api' # Optional
+
+controllers:
+    resource: '../src/Controller/'
+    type:     annotation
+
+reload:
+    path: /{any}
+    controller: App\Controller\SecurityController::reloadAction
+reload_level_1:
+    path: /{any}/create
+    controller: App\Controller\SecurityController::reloadAction
+reload_level_2:
+    path: /{any}/edit/{id}
+    controller: App\Controller\SecurityController::reloadAction
+
+

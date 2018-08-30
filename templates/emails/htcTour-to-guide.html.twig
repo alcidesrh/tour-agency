@@ -1,0 +1,51 @@
+<div>
+    <div class="row mb-2">
+        <p class="bold">{{ tour.code }}</p>
+        <p class="bold">Name: {{ tour.name }}</p>
+        <p class="bold ml-2">Type: {{ tour.type }}</p>
+    </div>
+    <div class="row mb-2">
+        <div class="xs12 px-2">
+            <p class="bold">Start Date: {{ tour.startDate | format_date }}</p>
+            <p class="bold">Start Place: {{ tour.startPlace ~ tour.startTime | format_time}}</p>
+            <p class="bold">End Place: {{ tour.finishPlace  ~ tour.endTime | format_time}}</p>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="xs12 px-2"><label class="bold">Group Size: </label>{{ tour.getGroupSize }}
+        </div>
+        <div class="row mb-2">
+            <div class="xs12 px-2">
+                <div class="row">
+                    <div class="xs2"><label class="bold">Bookings</label>
+                    </div>
+                    <div class="xs12">
+                        <div class="row">
+                            <ul>
+                                {% for booking in tour.bookings %}
+                                    <li>
+                                        <div class="xs8">
+                                            <label><span class="bold"></span> - {{ booking.name }}</label>
+                                            <label class="bold ml-2">Pax. N: </label>{{ booking.numberPerson }}
+                                            <label class="bold ml-2">Lp: </label>{{ booking.lp }}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if tour.description %}
+        <div class="row mb-2">
+            <p>Description:</p>
+            <div class="xs12 px-2">
+                {{ tour.description | raw}}
+            </div>
+        </div>
+    {% endif %}
+</div>
