@@ -342,12 +342,10 @@
                             <label class="bold ml-2">Date: </label>{{toShow.startDate}}
                         </v-flex>
                         <v-flex xs12 px-2>
-                            <label class="bold">Start Place: </label>{{toShow.startPlace + ' ' +
-                            getTime(toShow.startTime)}}
+                            <label class="bold">Start Place: </label>{{toShow.startPlace}}
                         </v-flex>
                         <v-flex xs12>
-                            <label class="bold ml-2">End Place: </label>{{toShow.finishPlace + ' ' +
-                            getTime(toShow.endTime)}}
+                            <label class="bold ml-2">End Place: </label>{{toShow.finishPlace}}
                         </v-flex>
                     </v-layout>
                     <v-layout row mb-2 v-if="toShow.guide">

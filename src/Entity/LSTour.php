@@ -294,7 +294,8 @@ class LSTour extends TourAbstract implements \JsonSerializable
             'persons' => $this->getGroupSize(),
             'description' => $this->description,
             'guide' => $this->guide?$this->guide->getName():false,
-            'office' => $this->office
+            'office' => $this->office,
+            'ext' => $this->ext
             ];
     }
 }

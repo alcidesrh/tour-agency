@@ -505,7 +505,8 @@
                             <v-flex md12 text-md-center>
                                 <v-btn color="primary" @click="$router.push({name: 'LSTourList'})">Cancel
                                 </v-btn>
-                                <v-btn color="primary" @click="save">Save</v-btn>
+                                <v-btn color="primary" @click="save(true)">Save and Edit</v-btn>
+                                <v-btn color="primary" @click="save(null)">Save</v-btn>
                             </v-flex>
                         </v-layout>
                     </v-container>
@@ -1193,6 +1194,7 @@
     export default {
         data() {
             return {
+                editAfter: null,
                 bookingEditing: {},
                 booking: {name: '', persons: '', lp: ''},
                 bookings: [],
@@ -1305,7 +1307,12 @@
                     this.item.type = this.retrieved.type;
             },
             created() {
-                this.$router.push({name: 'LSTourList'});
+                if (!this.editAfter){
+                    this.$router.push({name: 'LSTourList'});
+                }
+                else{
+                    this.$router.push({name: 'LSTourUpdate', params: {id: this.created.id}});
+                }
             },
             errorCreate(message) {
                 this.error(message);
@@ -1454,7 +1461,7 @@
                     }
                     return (parseInt(moment(val).format('YYYYMMDD')) > parseInt(moment(endDate).format('YYYYMMDD')) && !this.extAccommodation.before) || (parseInt(moment(val).format('YYYYMMDD')) < parseInt(moment(this.item.startDate).format('YYYYMMDD')) && this.extAccommodation.before);
                 }
-                else if (this.item.days){
+                else if (this.item.days) {
                     let days = this.item.days;
                     if (!this.extAccommodation.before) {
                         days = days - 1
@@ -1632,8 +1639,8 @@
                 this.$refs.extInfoForm.reset();
                 this.$refs.extExtraTourForm.reset();
             },
-            save() {
-
+            save(edit) {
+                this.editAfter = edit;
                 if (!this.$refs.tourForm.validate()) {
                     this.$vuetify.goTo(0, {duration: 500})
                     return false;
@@ -1717,7 +1724,7 @@
         }
         ,
         created() {
-            if(typeof decodeURIComponent(this.$route.params.booking) != typeof undefined){
+            if (typeof decodeURIComponent(this.$route.params.booking) != typeof undefined) {
 
             }
             if (!this.templates.length)

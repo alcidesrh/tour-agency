@@ -80,45 +80,45 @@
               </v-flex>
             </v-layout>
             <v-layout row wrap>
-              <v-flex xs3 pr-3>
-                <v-menu
-                        ref="pickerStartTime"
-                        lazy
-                        :close-on-content-click="false"
-                        v-model="pickerStartTime"
-                        transition="scale-transition"
-                        offset-y
-                        full-width
-                        :nudge-right="40"
-                        max-width="290px"
-                        min-width="290px"
-                        :return-value.sync="item.startTime"
-                >
-                  <v-text-field v-if="item.type == 'group'"
-                          slot="activator"
-                          label="Start Time"
-                          v-model="item.startTime"
-                          prepend-icon="access_time"
-                          required
-                          :rules="nameRule"
-                          readonly
-                  ></v-text-field>
-                  <v-text-field v-else
-                                slot="activator"
-                                label="Start Time"
-                                v-model="item.startTime"
-                                prepend-icon="access_time"
-                                readonly
-                  ></v-text-field>
-                  <!--<v-time-picker v-model="item.startTime"-->
-                                 <!--@change="$refs.pickerStartTime.save(item.startTime)"></v-time-picker>-->
-                  <v-time-picker
-                          v-model="item.startTime" >
-                    <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="$refs.pickerStartTime.save(item.startTime)">OK</v-btn>
-                  </v-time-picker>
-                </v-menu>
-              </v-flex>
+              <!--<v-flex xs3 pr-3>-->
+                <!--<v-menu-->
+                        <!--ref="pickerStartTime"-->
+                        <!--lazy-->
+                        <!--:close-on-content-click="false"-->
+                        <!--v-model="pickerStartTime"-->
+                        <!--transition="scale-transition"-->
+                        <!--offset-y-->
+                        <!--full-width-->
+                        <!--:nudge-right="40"-->
+                        <!--max-width="290px"-->
+                        <!--min-width="290px"-->
+                        <!--:return-value.sync="item.startTime"-->
+                <!--&gt;-->
+                  <!--<v-text-field v-if="item.type == 'group'"-->
+                          <!--slot="activator"-->
+                          <!--label="Start Time"-->
+                          <!--v-model="item.startTime"-->
+                          <!--prepend-icon="access_time"-->
+                          <!--required-->
+                          <!--:rules="nameRule"-->
+                          <!--readonly-->
+                  <!--&gt;</v-text-field>-->
+                  <!--<v-text-field v-else-->
+                                <!--slot="activator"-->
+                                <!--label="Start Time"-->
+                                <!--v-model="item.startTime"-->
+                                <!--prepend-icon="access_time"-->
+                                <!--readonly-->
+                  <!--&gt;</v-text-field>-->
+                  <!--&lt;!&ndash;<v-time-picker v-model="item.startTime"&ndash;&gt;-->
+                                 <!--&lt;!&ndash;@change="$refs.pickerStartTime.save(item.startTime)"></v-time-picker>&ndash;&gt;-->
+                  <!--<v-time-picker-->
+                          <!--v-model="item.startTime" >-->
+                    <!--<v-spacer></v-spacer>-->
+                    <!--<v-btn flat color="primary" @click="$refs.pickerStartTime.save(item.startTime)">OK</v-btn>-->
+                  <!--</v-time-picker>-->
+                <!--</v-menu>-->
+              <!--</v-flex>-->
               <v-flex xs6 px-3>
                 <v-text-field v-if="item.type == 'group'"
                         label="Start Place"
@@ -135,46 +135,46 @@
               </v-flex>
             </v-layout>
             <v-layout row wrap>
-              <v-flex xs3 pr-3>
-                <v-menu
-                        ref="pickerEndTime"
-                        lazy
-                        :close-on-content-click="false"
-                        v-model="pickerEndTime"
-                        transition="scale-transition"
-                        offset-y
-                        full-width
-                        :nudge-right="40"
-                        max-width="290px"
-                        min-width="290px"
-                        :return-value.sync="item.endTime"
-                >
-                  <v-text-field v-if="item.type == 'group'"
-                          slot="activator"
-                          label="End Time"
-                          v-model="item.endTime"
-                          prepend-icon="access_time"
-                          required
-                          :rules="nameRule"
-                          readonly
-                  ></v-text-field>
-                  <v-text-field v-else
-                                slot="activator"
-                                label="End Time"
-                                v-model="item.endTime"
-                                prepend-icon="access_time"
-                                readonly
-                  ></v-text-field>
+              <!--<v-flex xs3 pr-3>-->
+                <!--<v-menu-->
+                        <!--ref="pickerEndTime"-->
+                        <!--lazy-->
+                        <!--:close-on-content-click="false"-->
+                        <!--v-model="pickerEndTime"-->
+                        <!--transition="scale-transition"-->
+                        <!--offset-y-->
+                        <!--full-width-->
+                        <!--:nudge-right="40"-->
+                        <!--max-width="290px"-->
+                        <!--min-width="290px"-->
+                        <!--:return-value.sync="item.endTime"-->
+                <!--&gt;-->
+                  <!--<v-text-field v-if="item.type == 'group'"-->
+                          <!--slot="activator"-->
+                          <!--label="End Time"-->
+                          <!--v-model="item.endTime"-->
+                          <!--prepend-icon="access_time"-->
+                          <!--required-->
+                          <!--:rules="nameRule"-->
+                          <!--readonly-->
+                  <!--&gt;</v-text-field>-->
+                  <!--<v-text-field v-else-->
+                                <!--slot="activator"-->
+                                <!--label="End Time"-->
+                                <!--v-model="item.endTime"-->
+                                <!--prepend-icon="access_time"-->
+                                <!--readonly-->
+                  <!--&gt;</v-text-field>-->
 
-                  <!--<v-time-picker v-model="item.endTime"-->
-                                 <!--@change="$refs.pickerEndTime.save(item.endTime)"></v-time-picker>-->
-                  <v-time-picker
-                          v-model="item.endTime" >
-                    <v-spacer></v-spacer>
-                    <v-btn flat color="primary" @click="$refs.pickerEndTime.save(item.endTime)">OK</v-btn>
-                  </v-time-picker>
-                </v-menu>
-              </v-flex>
+                  <!--&lt;!&ndash;<v-time-picker v-model="item.endTime"&ndash;&gt;-->
+                                 <!--&lt;!&ndash;@change="$refs.pickerEndTime.save(item.endTime)"></v-time-picker>&ndash;&gt;-->
+                  <!--<v-time-picker-->
+                          <!--v-model="item.endTime" >-->
+                    <!--<v-spacer></v-spacer>-->
+                    <!--<v-btn flat color="primary" @click="$refs.pickerEndTime.save(item.endTime)">OK</v-btn>-->
+                  <!--</v-time-picker>-->
+                <!--</v-menu>-->
+              <!--</v-flex>-->
               <v-flex xs6 px-3>
                 <v-text-field v-if="item.type == 'group'"
                         label="Finish Place"

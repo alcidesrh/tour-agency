@@ -391,7 +391,7 @@
                             </v-expansion-panel-content>
                         </v-expansion-panel>
                     </v-layout>
-                    <v-layout row wrap class="mt-5" v-if="!backTour">
+                    <v-layout row wrap class="mt-5" v-if="!backTour || !item.ext">
                         <v-flex md12 title>
                             Extentions
                             <v-btn color="primary"
@@ -1972,7 +1972,7 @@
                             document.cookie = "tour=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                         }
                     }
-
+console.log(this.retrieved)
                 }
             ).catch(e => {
                 this.error(time() + ' ' + e.message)

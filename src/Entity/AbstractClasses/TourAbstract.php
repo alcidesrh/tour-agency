@@ -70,6 +70,12 @@ abstract class TourAbstract extends CodeColorAbstract
     protected $canceled;
 
     /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $ext;
+
+
+    /**
      *
      * @ORM\Column(type="boolean", nullable=true)
      */
@@ -242,6 +248,22 @@ abstract class TourAbstract extends CodeColorAbstract
     public function setSent( $sent ): void
     {
         $this->sent = $sent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExt()
+    {
+        return $this->ext;
+    }
+
+    /**
+     * @param mixed $ext
+     */
+    public function setExt( $ext ): void
+    {
+        $this->ext = $ext;
     }
 
 }

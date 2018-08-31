@@ -360,7 +360,7 @@ class TourController extends AbstractController
             $em->refresh( $tour );
             self::checkTourNotifications( $tour, $em );
         }
-        return new JsonResponse( [ 'created' ] );
+        return new JsonResponse( [ 'id' => $tour->getId()] );
     }
 
     /**
